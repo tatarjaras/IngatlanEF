@@ -61,6 +61,7 @@ namespace IngatlanEF.IngatlanokWindows
                 tbxKepNev.Text=kivalasztott.KepNev;
                 cbxTipus.SelectedItem = MainWindow.tipusok.Contains(kivalasztott.Tipus) ? kivalasztott.Tipus : "ba";
                 cbxUgyintezoId.SelectedItem = $"{kivalasztott.UgyintezoId}. {ugyintezok.FirstOrDefault(u=>u.Id==kivalasztott.UgyintezoId).Nev}";
+                //asd
             }
             else
             {
