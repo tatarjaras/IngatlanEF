@@ -1,5 +1,6 @@
 ﻿using IngatlanEF.IngatlanokWindows;
 using IngatlanEF.UgyintezokWindows;
+using Microsoft.Win32;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -44,6 +45,7 @@ namespace IngatlanEF
                     mnuBelepes.Header = "Kilépés";
                     mnuIngatlanok.IsEnabled = true;
                     mnuUgyintezok.IsEnabled = true;
+                    mnuExport.IsEnabled = true;
                     lblBejelentkezve.Content = $"Bejelentkezve: {logName}";
                 }
             }
@@ -71,6 +73,26 @@ namespace IngatlanEF
         {
             IngatlanokModositowindow ingatlanokModositowindow = new IngatlanokModositowindow();
             ingatlanokModositowindow.ShowDialog();
+        }
+
+        private void Export_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog()
+            {
+                FileName = "export.txt",
+                DefaultExt="*.txt",
+                Filter="txt|*.txt"
+            };
+            if (sfd.ShowDialog()==true)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("nincs állomány");
+            }
+            
+
         }
     }
 }
