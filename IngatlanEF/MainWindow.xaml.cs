@@ -1,6 +1,7 @@
 ﻿using IngatlanEF.IngatlanokWindows;
 using IngatlanEF.UgyintezokWindows;
 using Microsoft.Win32;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -85,7 +86,10 @@ namespace IngatlanEF
             };
             if (sfd.ShowDialog()==true)
             {
-
+                if (File.Exists(sfd.FileName))
+                {
+                    MessageBox.Show("A fájl már létezik, felülírja?","Figyelmeztetés",MessageBoxButton.YesNo,MessageBoxImage.Warning);
+                } 
             }
             else
             {
