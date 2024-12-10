@@ -44,7 +44,7 @@ namespace IngatlanEF.IngatlanokWindows
                 Ar=int.Parse(tbxAr.Text),
                 Tipus=cbxTipus.Text,
                 KepNev=tbxKepNev.Text,
-                UgyintezoId=int.Parse(cbxUgyintezoId.Text)
+                UgyintezoId = int.Parse(cbxUgyintezoId.Text.Split(".")[0])
             };
             IngatlanService.IngatlanInsert(ujIngatlan);
             MessageBox.Show("Sikeres rögzítés");
