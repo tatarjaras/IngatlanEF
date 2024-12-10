@@ -66,5 +66,11 @@ namespace IngatlanEF
             IngatlanokFelviteleWindow ingatlanokFelviteleWindow=new IngatlanokFelviteleWindow();
             ingatlanokFelviteleWindow.ShowDialog();
         }
+
+        private void IngatlanokModositasa_Click(object sender, RoutedEventArgs e)
+        {
+            IngatlanokModositowindow ingatlanokModositowindow = new IngatlanokModositowindow();
+            ingatlanokModositowindow.ShowDialog();
+        }
     }
 }

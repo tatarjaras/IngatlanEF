@@ -16,7 +16,7 @@
             <MenuItem Name="mnuIngatlanok" Header="Ingatlanok" IsEnabled="False">
                 <MenuItem Header="Ingatlanok listája" Click="IngatlanokListaja"/>
                 <MenuItem Header="Ingatlanok felvitele" Click="Ingatlanokfelvitele"/>
-                <MenuItem Header="Ingatlanok módosítása"/>
+                <MenuItem Header="Ingatlanok módosítása" Click="IngatlanokModositasa_Click"/>
                 <MenuItem Header="Ingatlanok törlése"/>
             </MenuItem>
             <MenuItem Name="mnuUgyintezok" Header="Ügyintézők" IsEnabled="False">
