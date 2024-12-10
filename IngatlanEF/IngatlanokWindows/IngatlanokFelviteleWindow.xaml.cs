@@ -54,6 +54,12 @@ namespace IngatlanEF.IngatlanokWindows
                 };
                 IngatlanService.IngatlanInsert(ujIngatlan);
                 MessageBox.Show("Sikeres rögzítés");
+                tbxAr.Text = "";
+                tbxCim.Text = "";
+                tbxKepNev.Text = "";
+                tbxTelepules.Text = "";
+                cbxTipus.SelectedItem = "ba";
+                cbxUgyintezoId.Text = "";
             }
             else
             {
