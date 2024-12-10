@@ -68,5 +68,33 @@ namespace IngatlanEF.IngatlanokWindows
                 MessageBox.Show("nincs kiválasztva elem!");
             }
         }
+
+        private void btnMentes_click(object sender, RoutedEventArgs e)
+        {
+            int ujAr = 0;
+            int ujUgyi = 0;
+            if (int.TryParse(tbxAr.Text, out ujAr) && int.TryParse(cbxUgyintezoId.Text.Split(".")[0], out ujUgyi))
+            {
+
+
+                Ingatlan ujIngatlan = new()
+                {
+                    Id = int.Parse(cbxSelect.SelectedItem.ToString().Split(":")[0]) ,
+                    Telepules = tbxTelepules.Text,
+                    Cim = tbxCim.Text,
+                    Ar = ujAr,
+                    Tipus = cbxTipus.Text,
+                    KepNev = tbxKepNev.Text,
+                    UgyintezoId = ujUgyi
+                };
+                IngatlanService.IngatlanUpdate(ujIngatlan);
+                MessageBox.Show("Sikeres rögzítés");
+                CbxSelectFeltolt();
+            }
+            else
+            {
+                MessageBox.Show("nem megfelő ár/ügyintéző");
+            }
+        }
     }
 }
