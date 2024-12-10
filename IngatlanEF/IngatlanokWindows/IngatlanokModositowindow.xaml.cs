@@ -52,20 +52,25 @@ namespace IngatlanEF.IngatlanokWindows
 
         private void cbxSelect_select(object sender, SelectionChangedEventArgs e)
         {
-            Ingatlan kivalasztott=ingatlanok.FirstOrDefault(i=>i.Id==int.Parse(cbxSelect.SelectedItem.ToString().Split(":")[0]));
-            if (kivalasztott!=null )
+            if (cbxSelect.SelectedIndex >= 0)
             {
-                tbxTelepules.Text=kivalasztott.Telepules;
-                tbxCim.Text=kivalasztott.Cim;
-                tbxAr.Text=kivalasztott.Ar.ToString();
-                tbxKepNev.Text=kivalasztott.KepNev;
-                cbxTipus.SelectedItem = MainWindow.tipusok.Contains(kivalasztott.Tipus) ? kivalasztott.Tipus : "ba";
-                cbxUgyintezoId.SelectedItem = $"{kivalasztott.UgyintezoId}. {ugyintezok.FirstOrDefault(u=>u.Id==kivalasztott.UgyintezoId).Nev}";
-                
-            }
-            else
-            {
-                MessageBox.Show("nincs kiválasztva elem!");
+
+
+                Ingatlan kivalasztott = ingatlanok.FirstOrDefault(i => i.Id == int.Parse(cbxSelect.SelectedItem.ToString().Split(":")[0]));
+                if (kivalasztott != null)
+                {
+                    tbxTelepules.Text = kivalasztott.Telepules;
+                    tbxCim.Text = kivalasztott.Cim;
+                    tbxAr.Text = kivalasztott.Ar.ToString();
+                    tbxKepNev.Text = kivalasztott.KepNev;
+                    cbxTipus.SelectedItem = MainWindow.tipusok.Contains(kivalasztott.Tipus) ? kivalasztott.Tipus : "ba";
+                    cbxUgyintezoId.SelectedItem = $"{kivalasztott.UgyintezoId}. {ugyintezok.FirstOrDefault(u => u.Id == kivalasztott.UgyintezoId).Nev}";
+
+                }
+                else
+                {
+                    MessageBox.Show("nincs kiválasztva elem!");
+                }
             }
         }
 
