@@ -21,10 +21,15 @@ namespace IngatlanEF.IngatlanokWindows
     /// </summary>
     public partial class IngatlanokFelviteleWindow : Window
     {
+        List<Ugyintezo> ugyintezok=UgyintezoService.GetAllUgyintezo();
         public IngatlanokFelviteleWindow()
         {
             InitializeComponent();
             cbxTipus.ItemsSource = MainWindow.tipusok;
+            foreach(Ugyintezo ugyintezo in ugyintezok)
+            {
+                cbxUgyintezoId.Items.Add($"{ugyintezo.Id}. {ugyintezo.Nev}");
+            }
         }
 
 
