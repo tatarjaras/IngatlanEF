@@ -36,18 +36,29 @@ namespace IngatlanEF.IngatlanokWindows
 
         private void btnMentes_click(object sender, RoutedEventArgs e)
         {
-            Ingatlan ujIngatlan = new()
+            int ujAr = 0;
+            int ujUgyi = 0;
+            if (int.TryParse(tbxAr.Text, out ujAr) && int.TryParse(cbxUgyintezoId.Text.Split(".")[0], out ujUgyi))
             {
-                Id=0,
-                Telepules=tbxTelepules.Text,
-                Cim=tbxCim.Text,
-                Ar=int.Parse(tbxAr.Text),
-                Tipus=cbxTipus.Text,
-                KepNev=tbxKepNev.Text,
-                UgyintezoId = int.Parse(cbxUgyintezoId.Text.Split(".")[0])
-            };
-            IngatlanService.IngatlanInsert(ujIngatlan);
-            MessageBox.Show("Sikeres rögzítés");
+
+
+                Ingatlan ujIngatlan = new()
+                {
+                    Id = 0,
+                    Telepules = tbxTelepules.Text,
+                    Cim = tbxCim.Text,
+                    Ar = ujAr,
+                    Tipus = cbxTipus.Text,
+                    KepNev = tbxKepNev.Text,
+                    UgyintezoId = ujUgyi
+                };
+                IngatlanService.IngatlanInsert(ujIngatlan);
+                MessageBox.Show("Sikeres rögzítés");
+            }
+            else
+            {
+                MessageBox.Show("nem megfelő ár/ügyintéző");
+            }
         }
 
         private void btnMegse_click(object sender, RoutedEventArgs e)
